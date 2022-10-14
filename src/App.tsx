@@ -10,6 +10,23 @@ import { Button } from './styles/components/Button'
 
 
 export function App() {
+  
+  function alert() {
+    let email = document.getElementById("email").value 
+    let password = document.getElementById("password").value 
+
+    swal({
+    title: "Parabéns!",
+      text: "Seu email: " + email,
+     icon: "success",
+    }).then(() => {
+        swal({
+           title: "Parabéns!",
+           text: "Sua senha: " + password,
+            icon: "success",
+           });
+      })
+  }
 
   return (
     <div className="w-screen h-screen bg-deskBackground flex flex-col items-center justify-center text-labelHead">
@@ -25,7 +42,7 @@ export function App() {
         </Text>
       </header>  
 
-      <form className='flex flex-col gap-4 items-stretch w-full max-w-sm mt-10'>
+      <div className='flex flex-col gap-4 items-stretch w-full max-w-sm mt-10'>
         <label htmlFor="email" className='flex flex-col gap-3'>
           <Text className='font-semibold'>
             Endereço de email
@@ -57,10 +74,10 @@ export function App() {
           <Text size='sm' className='text-grayLabel'>Lembre de mim</Text>
         </label>
 
-        <Button type="submit" className='mt-4'>
+        <Button type="submit" className='mt-4' onClick={alert}>
           Entrar na plataforma
         </Button>
-      </form>
+      </div>
 
       <footer className='flex flex-col items-center gap-4 mt-8'>
         <Text asChild size='sm'>
