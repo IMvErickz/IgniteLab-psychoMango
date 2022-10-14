@@ -1,28 +1,30 @@
-<<<<<<< HEAD
-name: deploy
-=======
 name: Deploy Storybook
->>>>>>> 430b74410f35444e231cccb43e366ac0a0da10fd
 
-on:
+on: 
   push:
-    branches:
-      - main
+   branches:
+     - main
 
 jobs:
-  deploy:
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-      - name: Build web-app
-        run: |
-          npm ci
-          npm run build
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+  build-and-deploy:
+   runs-on: ubuntu-latest
+
+   steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with: 
+       node-version: 16
+
+    - name: Install Sependences
+    - run: npm ci --legacy-peer-deps
+      
+    - name: Build Storybook
+    - run: npm run build-storybook
+      
+    - name: Deploy Storybook
+      run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
+      env: 
+        GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
