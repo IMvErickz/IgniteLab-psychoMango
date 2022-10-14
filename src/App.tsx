@@ -3,8 +3,7 @@ import {Logo} from './Logo'
 import { Heading } from './styles/components/Heading'
 import {Text} from './styles/components/text'
 import { TextInput } from './styles/components/TextInput'
-import { Envelope } from 'phosphor-react'
-import { Key } from 'phosphor-react'
+import { Envelope, Key } from 'phosphor-react'
 import { Checkbox } from './styles/components/Checkbox'
 import { Button } from './styles/components/Button'
 import Swal from 'sweetalert2'
@@ -13,22 +12,26 @@ import Swal from 'sweetalert2'
 export function App() {
   
   function alert() {
-    let email = (document.getElementById("email") as HTMLInputElement).value 
-    let password = (document.getElementById("password") as HTMLInputElement).value 
-
+    const person = {
+      Email:  (document.getElementById("email") as HTMLInputElement).value,
+      Senha:  (document.getElementById("password") as HTMLInputElement).value 
+      
+    }
     Swal.fire({
     title: "Parabéns!",
-      text: "Seu email: " + email,
+      text: "Seu email: " + person.Email,
      icon: "success",
     }).then(() => {
         Swal.fire({
            title: "Parabéns!",
-           text: "Sua senha: " + password,
+           text: "Sua senha: " + person.Senha,
             icon: "success",
-           });
-      })
-  }
+        }).then(() => {
+             localStorage.setItem("Person", JSON.stringify(person))
+           })
+    })
 
+  }
   return (
     <div className="w-screen h-screen bg-deskBackground flex flex-col items-center justify-center text-labelHead">
       <header className='flex flex-col items-center'>
