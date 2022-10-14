@@ -4,7 +4,7 @@ import { Heading } from './styles/components/Heading'
 import {Text} from './styles/components/text'
 import { TextInput } from './styles/components/TextInput'
 import { Envelope } from 'phosphor-react'
-import { Lock } from 'phosphor-react'
+import { Key } from 'phosphor-react'
 import { Checkbox } from './styles/components/Checkbox'
 import { Button } from './styles/components/Button'
 import Swal from 'sweetalert2'
@@ -63,7 +63,7 @@ export function App() {
             </Text>
             <TextInput.Root>
                 <TextInput.Incon>
-                  <Lock/>
+                  <Key/>
                 </TextInput.Incon>
                 
                 <TextInput.Input id='password' type='password' placeholder='********'/>
