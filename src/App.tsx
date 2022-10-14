@@ -7,6 +7,7 @@ import { Envelope } from 'phosphor-react'
 import { Lock } from 'phosphor-react'
 import { Checkbox } from './styles/components/Checkbox'
 import { Button } from './styles/components/Button'
+import Swal from 'sweetalert2'
 
 
 export function App() {
@@ -15,12 +16,12 @@ export function App() {
     let email = (document.getElementById("email") as HTMLInputElement).value 
     let password = (document.getElementById("password") as HTMLInputElement).value 
 
-    swal({
+    Swal.fire({
     title: "Parabéns!",
       text: "Seu email: " + email,
      icon: "success",
     }).then(() => {
-        swal({
+        Swal.fire({
            title: "Parabéns!",
            text: "Sua senha: " + password,
             icon: "success",
@@ -92,3 +93,7 @@ export function App() {
 
   )
 }
+function swal(arg0: { title: string; text: string; icon: string }) {
+  throw new Error('Function not implemented.')
+}
+
