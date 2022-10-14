@@ -12,8 +12,8 @@ import { Button } from './styles/components/Button'
 export function App() {
   
   function alert() {
-    let email = document.getElementById("email").value 
-    let password = document.getElementById("password").value 
+    let email = (document.getElementById("email") as HTMLInputElement).value 
+    let password = (document.getElementById("password") as HTMLInputElement).value 
 
     swal({
     title: "Parabéns!",
