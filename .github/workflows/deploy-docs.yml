@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 name: deploy
+=======
+name: Deploy Storybook
+>>>>>>> 430b74410f35444e231cccb43e366ac0a0da10fd
 
 on:
   push:
